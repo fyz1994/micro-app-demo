@@ -58,11 +58,6 @@ module.exports = {
             ["import", { "libraryName": "antd", "style": "css" }]
           ],
         },
-      },
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        loader: 'ts-loader',
       }
     ],
   },
@@ -70,7 +65,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: module => module.context && module.context.indexOf('node_modules') !== -1
-    }),
-    new webpack.ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, path.join(__dirname, './src')),
+    })
   ],
 };
